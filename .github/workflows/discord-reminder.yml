@@ -1,0 +1,17 @@
+name: Discord Reminder Bot
+
+on:
+  schedule:
+    - cron: '0 9 * * *' # 한국시간 기준 오후 6시에 실행 (UTC 9AM = KST 6PM)
+  workflow_dispatch: # 수동 실행도 가능하게
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send message to Discord
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{\"content\": \"⏰ 리마인더입니다! 오늘 할 일 잊지 마세요!\"}" \
+               ${{ secrets.DISCORD_WEBHOOK }}
