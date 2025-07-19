@@ -13,5 +13,5 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
                -X POST \
-               -d "{\"content\": \"오늘 푼 문제를 업로드하세요.!\"}" \
+               -d "{\"content\": \"오늘 푼 문제를 업로드하세요.\"}" \
                ${{ secrets.DISCORD_WEBHOOK }}
